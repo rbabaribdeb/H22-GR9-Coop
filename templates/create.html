@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>S'enregistrer</h2>
+
+<form action="create" method="post" class="form-inline">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        <input type="text" name="nom" placeholder="Nom">
+    </div>
+    <div class="form-group">
+        <input type="file"  name="image" >
+    </div>
+    <div class="form-group">
+        <input type="text" name="description" placeholder="Description du produit">
+    </div>
+    <div class="form-group">
+        <input type="text" name="prix" placeholder="Prix du produit">
+    </div>
+
+    <button type="submit" class="btn btn-default">Mettre en vente</button>
+</form>
+
+{% endblock %}

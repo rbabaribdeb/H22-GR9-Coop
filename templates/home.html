@@ -4,23 +4,10 @@
 {% static "images" as baseUrl %}
 
 {% block content %}
-<h1>Bonjour et Bienvenue à RENAISSANCE COOP</h1>
-<p1>Site crée par Kevin et Sefeldin</p1>
+
+<h1>RENAISSANCE COOP</h1>
+<p1>Site créé par Kevin et Sefeldin</p1>
 <hr>
-<img src="https://mcs.rcdsb.on.ca/en/resourcesGeneral/school-supplies-clipart.jpg" width="200" height="200">
-
-<div>
-
-    {% if user.is_authenticated %}
-    Hello, <strong>{{user.username}}</strong><br>
-    <a href="logout">Se déconnecter</a><br>
-    {% else %}
-    <a href="login">Se connecter</a><br>
-    <a href="register">S'enregistrer</a>
-    {% endif %}
-
-</div>
-
 <br>
 <br>
 
@@ -28,25 +15,25 @@
 
 <hr>
 
-
-
-{% for produit in produits %}
-<!-- <img src="{% static 'images/math.jpg' %}" width="200" height="200" alt="Image non trouvé"><br> -->
-
-<div>
-
-    <img src="{{produit.img.url}}" width="200" height="200" alt="Image non trouvé"><br>
-    {{produit.name}}<br>
-    DESCRIPTION : {{produit.desc}}<br>
-    PRIX : {{produit.price}}<br>
-
+<div class="container">
+    <div class="row">
+        {% for produit in produits %}
+        <div class="col-sm-6" >
+            <div class="thumbnail">
+                <a href="">
+                    <img src="{{produit.img.url}}" width="200" height="200" alt="Image non trouvé">
+                    <div class="caption">
+                        <p>{{produit.name}}<br>
+                            DESCRIPTION : {{produit.desc}}<br>
+                            PRIX : {{produit.price}}<br>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
-
-
-<br>
-<br>
-
-{% endfor %}
 
 {% endblock %}
