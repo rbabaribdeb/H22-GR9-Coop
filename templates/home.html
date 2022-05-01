@@ -18,22 +18,27 @@
 <div class="container">
     <div class="row">
         {% for produit in produits %}
-        <div class="col-sm-6" >
+        <div class="col-sm-6">
             <div class="thumbnail">
-                <a href="">
-                    <img src="{{produit.img.url}}" width="500" height="100" alt="{{produit.desc}}">
-                    <div class="caption">
-                        <p>{{produit.name}}<br>
-                            DESCRIPTION : {{produit.desc}}<br>
-                            PRIX : {{produit.price}}<br>
-                        </p>
-                    </div>
-                </a>
+
+                <img src="{{produit.img.url}}" width="500" height="100" alt="{{produit.desc}}">
+                <div class="caption">
+                    <p>{{produit.name}}<br>
+                        DESCRIPTION : {{produit.desc}}<br>
+                        PRIX : {{produit.price}}<br>
+                    </p>
+                </div>
+
+                <form action="actif" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{produit.id}}">
+                    <button type="submit" class="btn btn-default">Voir plus d'information</button>
+                </form>
+
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
-
 
 {% endblock %}

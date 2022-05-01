@@ -66,19 +66,20 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-      <div class="navbar-header">
-          <a class="navbar-brand" href="/">RENAISSANCE COOP</a>
-      </div>
-      <ul class="nav navbar-nav">
-          {% if user.is_authenticated %}
-          <li><a href="">Bonjour, {{user.username}}</a></li>
-          <li><a href="logout">Se déconnecter</a></li>
-          <li><a href="create">Mettre un livre en vente</a></li>
-          {% else %}
-          <li><a href="register">S'enregistrer</a></li>
-          <li><a href="login">Se connecter</a></li>
-          {% endif %}
-      </ul>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">RENAISSANCE COOP</a>
+    </div>
+    <ul class="nav navbar-nav">
+      {% if user.is_authenticated %}
+      <li><a href="">Bonjour, {{user.username}}</a></li>
+      <li><a href="logout">Se déconnecter</a></li>
+      <li><a href="create">Mettre un livre en vente</a></li>
+      {% else %}
+      <li><a href="register">S'enregistrer</a></li>
+      <li><a href="login">Se connecter</a></li>
+      {% endif %}
+      <li><a href="comment">Voir les commentaires</a></li>
+    </ul>
   </div>
 </nav>
 

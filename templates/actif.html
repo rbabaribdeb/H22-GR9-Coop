@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-sm-12">
+        <div class="thumbnail">
+
+            <img src="{{produit.img.url}}" width="500" height="100" alt="{{produit.desc}}">
+            <div class="caption">
+                <p>{{produit.name}}<br>
+                    DESCRIPTION : {{produit.desc}}<br>
+                    PRIX : {{produit.price}}<br>
+                </p>
+            </div>
+
+            {% if user.is_authenticated %}
+            <form action="achat" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{produit.id}}">
+                <button type="submit" class="btn btn-default">Acheter ce livre</button>
+            </form>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
