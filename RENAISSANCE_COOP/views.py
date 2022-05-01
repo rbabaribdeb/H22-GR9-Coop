@@ -1,10 +1,34 @@
 # from email import message
 from django.shortcuts import redirect, render
-from RENAISSANCE_COOP.models import Produit
+from RENAISSANCE_COOP.models import Produit, Comment
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
 # Create your views here.
+
+
+def comment(request):
+
+    if request.method == "POST":
+
+
+        comment = Comment()
+        comment.description = request.POST["comment"]
+        comment.save()
+
+        return redirect("/")
+    else:
+        comments = Comment.objects.all()
+        return render(request, "comment.html",{"comments": comments})
+
+def achat(request):
+    produit = Produit.objects.get(id=request.POST["id"])
+    produit.delete()
+    return render(request, "achat.html")
+
+def actif(request):
+    produit = Produit.objects.get(id=request.POST["id"])
+    return render(request, "actif.html",{"produit": produit})
 
 
 def home(request):
@@ -74,7 +98,7 @@ def logout(request):
 
 
 def create(request):
-    
+
     if request.method == "POST":
 
         produits = Produit()
@@ -82,7 +106,7 @@ def create(request):
         produits.img = request.POST["image"]
         produits.desc = request.POST["description"]
         produits.price = request.POST["prix"]
-        
+
         produits.save()
         return redirect("/")
 
