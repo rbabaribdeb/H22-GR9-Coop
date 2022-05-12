@@ -21,19 +21,18 @@
 
   <style>
     .jumbotron {
-      background-color: #1184e281;
-      /* Orange */
+      
       color: #000000;
     }
 
     .navbar {
       margin-bottom: 0;
-      background-color: #3a5099;
+      background-color: #1f3fa8;
       z-index: 9999;
       border: 0;
       font-size: 22px !important;
       line-height: 1.42857143 !important;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       border-radius: 0;
     }
 
@@ -71,7 +70,7 @@
     </div>
     <ul class="nav navbar-nav">
       {% if user.is_authenticated %}
-      <li><a href="">Bonjour, {{user.username}}</a></li>
+      <li><a href="/">Bonjour, {{user.username}}</a></li>
       <li><a href="logout">Se déconnecter</a></li>
       <li><a href="create">Mettre un livre en vente</a></li>
       {% else %}
