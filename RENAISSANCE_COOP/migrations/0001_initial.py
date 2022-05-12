@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('img', models.ImageField(upload_to='pics')),
                 ('desc', models.TextField()),
                 ('price', models.IntegerField()),
+                ('user', models.IntegerField()),
             ],
         )
     ]
