@@ -9,6 +9,7 @@ class Produit(models.Model):
     img = models.ImageField(upload_to="pics")
     desc = models.TextField()
     price = models.IntegerField()
+    user = models.TextField()
 
 class Comment(models.Model):
     description = models.TextField()
