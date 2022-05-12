@@ -52,7 +52,7 @@ def login(request):
             auth.login(request, user)
             return redirect("/")
         else:
-            messages.info(request, "mauvais mot de pass ou nom d'utilisateur")
+            messages.info(request, "mauvais mot de passe ou nom d'utilisateur")
             return redirect("login")
 
     else:
@@ -106,6 +106,7 @@ def create(request):
         produits.img = request.POST["image"]
         produits.desc = request.POST["description"]
         produits.price = request.POST["prix"]
+        produits.user = request.POST["user"]
 
         produits.save()
         return redirect("/")
