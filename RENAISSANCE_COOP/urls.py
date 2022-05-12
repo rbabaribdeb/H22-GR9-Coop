@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+# tout les liens
 urlpatterns = [
     path("", views.home, name="home"),
     path("result", views.result, name="result"),

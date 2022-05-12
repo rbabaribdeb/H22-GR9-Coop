@@ -6,7 +6,7 @@ from django.contrib import messages
 
 # Create your views here.
 
-
+# sert a creer un commentaire
 def comment(request):
 
     if request.method == "POST":
@@ -21,26 +21,28 @@ def comment(request):
         comments = Comment.objects.all()
         return render(request, "comment.html",{"comments": comments})
 
+# pour acheter un produit
 def achat(request):
     produit = Produit.objects.get(id=request.POST["id"])
     produit.delete()
     return render(request, "achat.html")
 
+# montre le produit deja cliqué
 def actif(request):
     produit = Produit.objects.get(id=request.POST["id"])
     return render(request, "actif.html",{"produit": produit})
 
-
+# ce qu'on voit, tout les produits
 def home(request):
     produits = Produit.objects.all()
     # return HttpResponse('<h1>Hello Kevin</h1>')
     return render(request, "home.html", {"produits": produits})
 
-
+# rien, juste un test
 def result(request):
     return render(request, "result.html")
 
-
+# pour se connecter
 def login(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -58,7 +60,7 @@ def login(request):
     else:
         return render(request, "login.html")
 
-
+# pour s'enregistrer
 def register(request):
 
     if request.method == "POST":
@@ -91,12 +93,12 @@ def register(request):
     else:
         return render(request, "register.html")
 
-
+# pour se déconnecter
 def logout(request):
     auth.logout(request)
     return redirect("/")
 
-
+# sert a creer un produit
 def create(request):
 
     if request.method == "POST":
