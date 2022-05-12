@@ -4,7 +4,7 @@
 
 <h2>Liste de commentaires récents</h2>
 
-
+<!-- sert a afficher les commentaires -->
 {% for comment in comments %}
 <div class="row">
     <div class="thumbnail">
@@ -16,6 +16,7 @@
 
 {% if user.is_authenticated %}
 
+<!-- sert a ajouter un commentaire si lutilisateur est enregistré -->
 <form action="comment" method="post">
     {% csrf_token %}
     <input type="hidden" name="id" value="{{comment.id}}">
